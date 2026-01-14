@@ -10,7 +10,7 @@ from langchain_classic.chains.qa_with_sources.retrieval import RetrievalQAWithSo
 load_dotenv()
 
 
-API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MODEL = "gpt-4o-mini"
 TEMPERATURE = 0.5
 EMBED_MODEL = "text-embedding-3-small" 
@@ -31,7 +31,7 @@ def initialize_components():
         model = ChatOpenAI(model= "gpt-4o-mini", temperature= TEMPERATURE)
 
     if vector_store is None:
-        embedding = OpenAIEmbeddings(model= EMBED_MODEL, api_key= API_KEY)
+        embedding = OpenAIEmbeddings(model= EMBED_MODEL, api_key= OPENAI_API_KEY)
         
         vector_store = Chroma(
             collection_name=COLLECTION_NAME,
