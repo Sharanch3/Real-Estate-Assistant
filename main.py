@@ -16,7 +16,7 @@ url3 = st.sidebar.text_input(label="URL3")
 
 placeholder = st.empty()
 
-process_url_button = st.sidebar.button("Process URLs")
+process_url_button = st.sidebar.button("Process URLs", key="primary")
 
 
 if process_url_button:
@@ -28,7 +28,7 @@ if process_url_button:
         for status in process_urls(urls= urls):
             placeholder.status(status)
 
-query = placeholder.text_area("Question:")
+query = placeholder.text_area("Question:", key="primary")
 
 if query:
     answer, sources = generate_answer(query)
